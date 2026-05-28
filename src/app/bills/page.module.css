@@ -1,0 +1,89 @@
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.overviewSection {
+  display: flex;
+  gap: 16px;
+}
+
+.overviewCard {
+  flex: 1;
+  padding: 20px;
+  border-radius: var(--radius);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.dueCard {
+  background-color: var(--alert-red);
+}
+
+.taxCard {
+  background-color: var(--primary);
+}
+
+.overviewLabel {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.overviewValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.emptyText {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.fab {
+  position: fixed;
+  bottom: 80px;
+  right: calc(50vw - 220px);
+  background-color: var(--primary);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(107, 142, 125, 0.4);
+  transition: transform 0.2s;
+  z-index: 100;
+}
+
+@media (max-width: 480px) {
+  .fab {
+    right: 20px;
+  }
+}
+
+.fab:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,4 @@
+[
+  { "id": "1", "title": "AC Unit Service", "date": "2025-06-10", "technician": "CoolBreeze HVAC", "notes": "Replaced filter and checked refrigerant levels.", "nextDueDate": "2026-06-10" },
+  { "id": "2", "title": "Boiler Inspection", "date": "2025-11-15", "technician": "City Heating Co.", "notes": "Annual safety check passed.", "nextDueDate": "2026-11-15" }
+]

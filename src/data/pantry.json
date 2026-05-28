@@ -1,0 +1,5 @@
+[
+  { "id": "1", "name": "Almond Milk", "category": "Everyday Essentials", "status": "In Stock", "lastUpdatedBy": "Sarah", "lastUpdated": "2026-05-20T10:00:00Z" },
+  { "id": "2", "name": "Coffee Beans", "category": "Everyday Essentials", "status": "Running Low", "lastUpdatedBy": "Mark", "lastUpdated": "2026-05-21T08:00:00Z" },
+  { "id": "3", "name": "Olive Oil", "category": "Long-term Staples", "status": "In Stock", "lastUpdatedBy": "Sarah", "lastUpdated": "2026-05-15T10:00:00Z" }
+]

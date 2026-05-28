@@ -1,0 +1,214 @@
+HomeSync Design Plan & Technical Specification
+
+1. Project Overview
+
+HomeSync is a collaborative household administration application designed for partners. It centralizes service maintenance, financial obligations, and inventory management into a shared, actionable dashboard.
+
+2. Design System: "Serene Household Orchestrator"
+
+
+
+
+
+Visual Direction: Minimalist, clean, and calming. Designed to reduce "admin fatigue."
+
+
+
+Color Palette:
+
+
+
+
+
+Primary: #6b8e7d (Sage Green) - Used for primary actions and "healthy" states.
+
+
+
+Secondary: #d8dadb (Soft Grey) - For neutral containers and background depth.
+
+
+
+Alerts: Amber for "Running Low" and Red for "Overdue/Critical" items.
+
+
+
+Surface: #f8fafb (Off-white) for a crisp, organized feel.
+
+
+
+Typography: Manrope (Sans-serif). Clean, highly legible, and modern.
+
+
+
+Rounding: 8px (Round Eight) for a soft, approachable UI.
+
+3. Core Information Architecture
+
+The app follows a flat navigation structure with a bottom navigation bar.
+
+1. Home Dashboard (Central Command)
+
+
+
+
+
+Goal: Instant situational awareness.
+
+
+
+Key Widgets:
+
+
+
+
+
+Household Health Score: A percentage-based visual indicator of how "on track" the home is.
+
+
+
+Urgent Alerts: Dynamic cards for immediate actions (e.g., "Credit Card Bill Due Tomorrow").
+
+
+
+Upcoming Tasks: Next maintenance date (e.g., AC Unit Service).
+
+
+
+Recent Updates: Activity feed showing who updated what (e.g., "Mark updated the Shopping List").
+
+2. Service & Maintenance Hub
+
+
+
+
+
+Goal: Long-term asset tracking.
+
+
+
+Key Features:
+
+
+
+
+
+Countdown Timer: "Days left until next annual maintenance."
+
+
+
+Service History Cards: Record of past visits with technician name, date, and notes.
+
+
+
+Floating Action Button (FAB): "Add New Service Record."
+
+3. Bill & Tax Manager
+
+
+
+
+
+Goal: Financial organization and deadline management.
+
+
+
+Key Features:
+
+
+
+
+
+Overview Cards: Total Due vs. Tax Season Deadlines.
+
+
+
+Categorized List: Recurring bills (Internet, Water, Council Tax) with status badges (PAID, DUE, OVERDUE).
+
+
+
+FAB: "Add New Bill."
+
+4. Smart Pantry & Toiletries
+
+
+
+
+
+Goal: Inventory management without manual counting.
+
+
+
+Inventory Logic:
+
+
+
+
+
+"Running Low" Toggle: When enabled, the item is automatically added to the Shopping List and triggers a partner notification.
+
+
+
+Restock Action: A primary "RESTOCK" button to reset the status once bought.
+
+
+
+Categorization: "Everyday Essentials" vs. "Long-term Staples."
+
+5. Shopping List
+
+
+
+
+
+Goal: Shared execution of shopping runs.
+
+
+
+Key Features:
+
+
+
+
+
+Auto-population: Pulls items marked as "Low" or "Out" from the Pantry.
+
+
+
+Contextual Info: Shows who marked the item as low and how long ago.
+
+
+
+Nearest Stockist: Integrated map/card showing the closest store.
+
+4. Interaction Model & Collaboration
+
+
+
+
+
+Syncing: Real-time updates across both partners' devices.
+
+
+
+Accountability: Every update shows the user's avatar (e.g., "Sarah paid the bill").
+
+
+
+Reminders: Push notifications for "Action Required" items 24-48 hours before deadlines.
+
+5. Components & Reusability
+
+
+
+
+
+Top Bar: Centered title with user avatar (left) and notifications (right).
+
+
+
+Bottom Bar: 4-tab navigation (Hub, Bills, Pantry, Shopping).
+
+
+
+Action Cards: Consistent layout for history, bills, and items to ensure ease of scanning.
+

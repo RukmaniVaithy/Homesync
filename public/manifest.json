@@ -1,0 +1,16 @@
+{
+  "name": "HomeSync",
+  "short_name": "HomeSync",
+  "description": "Collaborative household administration application",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafb",
+  "theme_color": "#6b8e7d",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

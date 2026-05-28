@@ -1,0 +1,41 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--secondary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notificationBtn {
+  background: transparent;
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notificationBtn:hover {
+  background-color: var(--secondary);
+}

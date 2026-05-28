@@ -1,0 +1,79 @@
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 80px; /* Space for BottomNav */
+  position: relative;
+}
+
+.countdownSection {
+  display: flex;
+  justify-content: center;
+}
+
+.timerCard {
+  background: linear-gradient(135deg, var(--primary), #81a894);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(107, 142, 125, 0.2);
+}
+
+.daysLeft {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.timerLabel {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.historySection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+}
+
+.fab {
+  position: fixed;
+  bottom: 80px;
+  right: calc(50vw - 220px); /* Keep it within max-width 480px constraints */
+  background-color: var(--primary);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(107, 142, 125, 0.4);
+  transition: transform 0.2s;
+  z-index: 100;
+}
+
+@media (max-width: 480px) {
+  .fab {
+    right: 20px;
+  }
+}
+
+.fab:hover {
+  transform: scale(1.05);
+}
