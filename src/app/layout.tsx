@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "HomeSync",
   description: "Collaborative household administration application",
   manifest: "/manifest.json",
+  icons: {
+    apple: "/icon.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "HomeSync",
+  },
 };
 
 export default function RootLayout({
