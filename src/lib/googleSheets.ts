@@ -50,7 +50,13 @@ async function ensureSheetsExist(doc: GoogleSpreadsheet) {
         const dataDir = path.join(process.cwd(), 'src/data');
         const mockFile = req.title === 'Finances' ? 'bills.json' : req.title.toLowerCase() + '.json';
         if (fs.existsSync(path.join(dataDir, mockFile))) {
-          const initialData = JSON.parse(fs.readFileSync(path.join(dataDir, mockFile), 'utf8'));
+          let rawData = fs.readFileSync(path.join(dataDir, mockFile), 'utf8');
+          const user1 = process.env.NEXT_PUBLIC_USER1_NAME || 'User 1';
+          const user2 = process.env.NEXT_PUBLIC_USER2_NAME || 'User 2';
+          rawData = rawData.replace(/\{\{USER1\}\}/g, user1);
+          rawData = rawData.replace(/\{\{USER2\}\}/g, user2);
+          
+          const initialData = JSON.parse(rawData);
           if (initialData.length > 0) {
             await sheet.addRows(initialData);
           }

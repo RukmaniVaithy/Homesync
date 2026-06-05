@@ -1,0 +1,32 @@
+.avatarBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: inherit;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.avatarBtn:hover {
+  opacity: 0.9;
+}
+
+.avatarBtn:active {
+  transform: scale(0.95);
+}
+
+.placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+}

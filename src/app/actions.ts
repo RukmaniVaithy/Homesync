@@ -2,6 +2,13 @@
 
 import { getGoogleSheet } from '@/lib/googleSheets';
 import { revalidatePath } from 'next/cache';
+import { cookies } from 'next/headers';
+
+function getActiveUser() {
+  const cookieStore = cookies();
+  const user = cookieStore.get('homesync_user')?.value;
+  return user ? decodeURIComponent(user) : process.env.NEXT_PUBLIC_USER1_NAME || 'User';
+}
 
 export async function togglePantryItemStatus(rowNumber: number, currentStatus: string) {
   const doc = await getGoogleSheet();
@@ -11,14 +18,14 @@ export async function togglePantryItemStatus(rowNumber: number, currentStatus: s
   const row = rows.find((r) => r.rowNumber === rowNumber);
   if (row) {
     const newStatus = currentStatus === 'Running Low' ? 'In Stock' : 'Running Low';
-    row.assign({ status: newStatus, lastUpdatedBy: 'App User' });
+    row.assign({ status: newStatus, lastUpdatedBy: getActiveUser() });
     await row.save();
     
     // Log activity
     const activitySheet = doc.sheetsByTitle['Activity'];
     await activitySheet.addRow({
       id: Date.now().toString(),
-      user: 'App User',
+      user: getActiveUser(),
       action: `Marked ${row.get('name')} as ${newStatus}`,
       timestamp: new Date().toISOString()
     });
@@ -39,13 +46,13 @@ export async function addBill(formData: FormData) {
     amount: formData.get('amount') as string,
     dueDate: formData.get('dueDate') as string,
     status: formData.get('status') as string,
-    lastUpdatedBy: 'App User'
+    lastUpdatedBy: getActiveUser()
   });
 
   const activitySheet = doc.sheetsByTitle['Activity'];
   await activitySheet.addRow({
     id: Date.now().toString(),
-    user: 'App User',
+    user: getActiveUser(),
     action: `Added bill ${formData.get('name') as string}`,
     timestamp: new Date().toISOString()
   });
@@ -63,13 +70,13 @@ export async function addPantryItem(formData: FormData) {
     name: formData.get('name') as string,
     category: formData.get('category') as string,
     status: formData.get('status') as string,
-    lastUpdatedBy: 'App User'
+    lastUpdatedBy: getActiveUser()
   });
 
   const activitySheet = doc.sheetsByTitle['Activity'];
   await activitySheet.addRow({
     id: Date.now().toString(),
-    user: 'App User',
+    user: getActiveUser(),
     action: `Added pantry item ${formData.get('name') as string}`,
     timestamp: new Date().toISOString()
   });
@@ -86,13 +93,13 @@ export async function markBillAsPaid(rowNumber: number) {
   
   const row = rows.find((r) => r.rowNumber === rowNumber);
   if (row) {
-    row.assign({ status: 'PAID', lastUpdatedBy: 'App User' });
+    row.assign({ status: 'PAID', lastUpdatedBy: getActiveUser() });
     await row.save();
     
     const activitySheet = doc.sheetsByTitle['Activity'];
     await activitySheet.addRow({
       id: Date.now().toString(),
-      user: 'App User',
+      user: getActiveUser(),
       action: `Marked bill ${row.get('name')} as PAID`,
       timestamp: new Date().toISOString()
     });
@@ -120,7 +127,7 @@ export async function markMaintenanceComplete(rowNumber: number) {
     const activitySheet = doc.sheetsByTitle['Activity'];
     await activitySheet.addRow({
       id: Date.now().toString(),
-      user: 'App User',
+      user: getActiveUser(),
       action: `Completed maintenance: ${row.get('title')}`,
       timestamp: new Date().toISOString()
     });
@@ -150,7 +157,7 @@ export async function addMaintenance(formData: FormData) {
   const activitySheet = doc.sheetsByTitle['Activity'];
   await activitySheet.addRow({
     id: Date.now().toString(),
-    user: 'App User',
+    user: getActiveUser(),
     action: `Added maintenance: ${formData.get('title') as string}`,
     timestamp: new Date().toISOString()
   });
@@ -166,13 +173,13 @@ export async function removePantryItem(rowNumber: number) {
   
   const row = rows.find((r) => r.rowNumber === rowNumber);
   if (row) {
-    row.assign({ status: 'Removed', lastUpdatedBy: 'App User' });
+    row.assign({ status: 'Removed', lastUpdatedBy: getActiveUser() });
     await row.save();
     
     const activitySheet = doc.sheetsByTitle['Activity'];
     await activitySheet.addRow({
       id: Date.now().toString(),
-      user: 'App User',
+      user: getActiveUser(),
       action: `Removed pantry item ${row.get('name')}`,
       timestamp: new Date().toISOString()
     });

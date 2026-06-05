@@ -1,5 +1,5 @@
 [
-  { "id": "1", "name": "Internet", "amount": 65.00, "dueDate": "2026-05-25", "status": "DUE", "category": "Utilities", "lastUpdatedBy": "Mark" },
-  { "id": "2", "name": "Water", "amount": 45.50, "dueDate": "2026-05-30", "status": "DUE", "category": "Utilities", "lastUpdatedBy": "Sarah" },
-  { "id": "3", "name": "Council Tax", "amount": 150.00, "dueDate": "2026-05-15", "status": "PAID", "category": "Taxes", "lastUpdatedBy": "Sarah" }
+  { "id": "1", "name": "Internet", "amount": 65.00, "dueDate": "2026-05-25", "status": "DUE", "category": "Utilities", "lastUpdatedBy": "{{USER2}}" },
+  { "id": "2", "name": "Water", "amount": 45.50, "dueDate": "2026-05-30", "status": "DUE", "category": "Utilities", "lastUpdatedBy": "{{USER1}}" },
+  { "id": "3", "name": "Council Tax", "amount": 150.00, "dueDate": "2026-05-15", "status": "PAID", "category": "Taxes", "lastUpdatedBy": "{{USER1}}" }
 ]
